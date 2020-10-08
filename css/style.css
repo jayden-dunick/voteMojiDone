@@ -1,0 +1,331 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+main {
+    background-color: white;
+    height: 90vh;
+    width: 90vw;
+    margin: auto;
+    overflow: hidden;
+    border: #EB94B3 1em solid;
+    border-radius: 5em;
+}
+
+header {
+    height: 20%;
+    display: flex;
+}
+
+#logo {
+    height: 70%;
+    margin: auto;
+}
+
+#landing {
+    height: 80%;
+    width: 180vw;
+    display: flex;
+    transition: .4s ease-in-out;
+}
+
+#landingContent {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+#landing article:nth-of-type(1) {
+    display: flex;
+    width: 100%;
+    height: 60%;
+}
+
+.example {
+    height: 500px;
+    margin: auto;
+}
+
+#go {
+    margin-top: auto;
+    cursor:pointer;
+}
+
+#building {
+    width: 50%;
+    position: relative;
+}
+
+#middle {
+    height: 60%;
+    display: flex;
+    width: 100%;
+}
+
+.voteMojiBody {
+    margin-top: auto;
+    height: 330px;
+}
+
+.st0 {
+    margin: auto;
+}
+
+#body {
+    margin: auto;
+}
+
+#bottom {
+    height: 40%;
+    display: flex;
+    width: 900vw;
+    transition: .4s ease-in-out;
+}
+
+.features {
+overflow: hidden;
+    width: 90vw;
+    height: 100%;
+    position: relative;
+    text-align: center;
+   
+}
+
+#skinColour {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+}
+
+.colour {
+    grid-column: span 4;
+    width: 80px;
+    height: 80px;
+    border-radius: 400vw;
+    margin: auto;
+    opacity: 1;
+}
+
+.colour:nth-of-type(1) {
+    background-color: #F99865;
+}
+
+.colour:nth-of-type(2) {
+    background-color: #FF9550;
+}
+
+.colour:nth-of-type(3) {
+    background-color: #BB5E2F;
+}
+
+.colour:nth-of-type(4) {
+    background-color: #8B461F;
+}
+
+.colour:nth-of-type(5) {
+    background-color: #3A2519;
+}
+
+.colour:nth-of-type(6) {
+    background-color: #EB94B3;
+    grid-column: 3 / span 4;
+}
+
+.colour:nth-of-type(7) {
+    background-color: #F57F4E;
+}
+
+.colour:nth-of-type(8) {
+    background-color: #10ADA3;
+}
+
+.colour:nth-of-type(9) {
+    background-color: #dadddd;
+}
+
+.modalSkin {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    transform: translate(0, 100vh);
+    transition: .4s ease-in-out;
+}
+
+.picker-container {
+    position: absolute;
+    left: 30%;
+    width: 60%;
+    height: 450px;
+    overflow: visible;
+    transform: translate(-15%, 820px);
+    border-radius: 6em;
+    background-color: #fff;
+    border: #EB94B3 1em solid;
+    display: flex;
+}
+
+.picker {
+    margin: auto;
+}
+
+.list {
+    display: flex;
+    justify-content: space-around;
+}
+
+#faceList {
+}
+
+#eyeList {
+    height: 60px;
+}
+
+#noseList {
+    display: flex;
+    height: 60px;
+}
+
+#mouthList {
+        display: flex;
+        height: 60px;
+    align-content: space-around;
+    width: 90%;
+    margin: auto;
+}
+
+#mouthList img {
+    width: 100px;
+    margin: auto;
+}
+
+#noseList img {
+    width: 100px;
+    object-fit: fill;
+}
+
+#hairList {
+width: auto;
+    margin-left: 1em;
+}
+
+#hairList svg{
+    height: 100px;
+    width: 100px;
+}
+
+#eyes {
+    position: absolute;
+    left: 47.7%;
+    top: 10%;
+    width: 60px;
+}
+
+#nose {
+    position: absolute;
+    left: 47.7%;
+    top: 10%;
+    width: 110px;
+}
+
+#mouth {
+    position: absolute;
+    left: 47.4%;
+    top: 14.4%;
+    width: 110px;
+}
+#hair {
+    position: absolute;
+    left: 40.8%;
+top: 1%;
+}
+
+#hair svg {
+     width: 150px;
+}
+
+#facialHair {
+    position: absolute;
+    left: 46.2%;
+    top: 14.4%;
+    width: 110px;
+}
+#shirt {
+    position: absolute;
+    left: 44.5%;
+    top: 25%;
+    width: 150px;
+}
+#bottoms {
+    position: absolute;
+    left: 46.9%;
+    top: 32.4%;
+    width: 86px;
+}
+
+button {
+    height: 100px;
+    width: 100px;
+    margin: auto auto 0 auto;
+}
+
+.directions {
+    position: absolute;
+}
+
+button {
+    border: none;
+    background: none;
+}
+
+#back {
+    left: 0;
+    top: 25%;
+}
+
+#next {
+    right: 31px;
+    top: 25%;
+}
+
+form {
+    width: 580px;
+    margin: auto;
+}
+
+#name, #email {
+    width: 300px;
+    border-radius: 2em;
+    padding: 1em;
+    margin: 1em;
+    height: 30px;
+    border: #EB94B3 4px solid;
+}
+
+#image-row {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+#submit {
+    float: right;
+    margin-right: 11em;
+     border-radius: 2em;
+        height: 30px;
+    border: #EB94B3 4px solid;
+     width: 70px;
+}
+
+h3 {
+    grid-column: 1/20;
+    text-align: center;
+}

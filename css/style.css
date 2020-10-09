@@ -11,7 +11,6 @@ body {
 }
 
 main {
-    background-color: white;
     height: 90vh;
     width: 90vw;
     margin: auto;
@@ -31,7 +30,7 @@ header {
 }
 
 #landing {
-    height: 80%;
+    height: 72%;
     width: 180vw;
     display: flex;
     transition: .4s ease-in-out;
@@ -56,7 +55,7 @@ header {
 
 #go {
     margin-top: auto;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 #building {
@@ -67,7 +66,7 @@ header {
 #middle {
     height: 60%;
     display: flex;
-    width: 100%;
+    padding-right: 3em;
 }
 
 .voteMojiBody {
@@ -86,22 +85,21 @@ header {
 #bottom {
     height: 40%;
     display: flex;
-    width: 900vw;
+    width: 1076.5vw;
     transition: .4s ease-in-out;
 }
 
 .features {
-overflow: hidden;
-    width: 90vw;
-    height: 100%;
+    width: 92vw;
+    height: auto;
     position: relative;
     text-align: center;
-   
 }
 
 #skinColour {
     display: grid;
     grid-template-columns: repeat(20, 1fr);
+    width: 87vw;
 }
 
 .colour {
@@ -151,26 +149,27 @@ overflow: hidden;
 }
 
 .modalSkin {
+    display: none;
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100vh;
-    transform: translate(0, 100vh);
-    transition: .4s ease-in-out;
+    overflow: hidden;
 }
 
 .picker-container {
     position: absolute;
-    left: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100vh;
     width: 60%;
     height: 450px;
-    overflow: visible;
-    transform: translate(-15%, 820px);
     border-radius: 6em;
     background-color: #fff;
     border: #EB94B3 1em solid;
     display: flex;
+   /* transition: .4s ease;*/
 }
 
 .picker {
@@ -182,42 +181,55 @@ overflow: hidden;
     justify-content: space-around;
 }
 
-#faceList {
-}
+#faceList {}
 
 #eyeList {
     height: 60px;
 }
 
+
+/*
 #noseList {
     display: flex;
-    height: 60px;
+    margin: auto;
+     overflow: scroll;
+    transform: translateY(-2em);
+    height: 90px;
 }
+*/
 
-#mouthList {
-        display: flex;
-        height: 60px;
+#noseList {
+    display: flex;
     align-content: space-around;
     width: 90%;
     margin: auto;
+    overflow: scroll;
+    transform: translateY(-5em);
+    padding-left: 5em;
+}
+
+#mouthList {
+    display: flex;
+    align-content: space-around;
+    width: 90%;
+    margin: auto;
+    overflow: scroll;
+    transform: translateY(-4em);
+    margin-top: -3em;;
 }
 
 #mouthList img {
-    width: 100px;
-    margin: auto;
-}
-
-#noseList img {
-    width: 100px;
-    object-fit: fill;
+    height: 90px;
 }
 
 #hairList {
-width: auto;
-    margin-left: 1em;
+    width: auto;
+    margin-left: 4em;
+    padding-left: 12em;
+    overflow: scroll;
 }
 
-#hairList svg{
+#hairList svg {
     height: 100px;
     width: 100px;
 }
@@ -242,28 +254,43 @@ width: auto;
     top: 14.4%;
     width: 110px;
 }
+
 #hair {
     position: absolute;
     left: 40.8%;
-top: 1%;
+    top: 1%;
 }
 
 #hair svg {
-     width: 150px;
+    width: 150px;
+}
+
+#facialHairList {
+    width: 100px;
+    margin: auto;
+            margin-top: 1em;
 }
 
 #facialHair {
     position: absolute;
     left: 46.2%;
     top: 14.4%;
+
     width: 110px;
 }
+
+.facialHair svg{
+    height: 20px;
+    width: 200px;
+}
+
 #shirt {
     position: absolute;
     left: 44.5%;
     top: 25%;
     width: 150px;
 }
+
 #bottoms {
     position: absolute;
     left: 46.9%;
@@ -271,19 +298,82 @@ top: 1%;
     width: 86px;
 }
 
+#headValueList {     
+    margin-left: 4em;
+    display: grid;
+    padding-left: 20em;
+    grid-gap: 1em;
+    width: 11vw;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 160px 160px 160px;
+}
+
+.headValue {
+    height: 60px;
+}
+
+#headValue {
+    position: absolute;
+    left: 47.7%;
+    top: 10%;
+    width: 120px;
+}
+
+
+#bodyValueList {     
+    margin-left: 4em;
+    display: grid;
+    padding-left: 20em;
+    grid-gap: 1em;
+    width: 11vw;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 160px 160px 160px;
+}
+
+.bodyValue {
+    height: 60px;
+}
+
+#shirtValue {
+    position: absolute;
+    left: 47.7%;
+    top: 10%;
+    width: 120px;
+}
+
+#signValueList {     
+    margin-left: 4em;
+    display: grid;
+    padding-left: 20em;
+    grid-gap: 1em;
+    width: 11vw;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 160px 160px 160px;
+}
+
+.signValue {
+    transform: translateX(-2em);
+    height: 90px;
+    margin: auto;
+}
+
+#signValue {
+    position: absolute;
+    left: 47.7%;
+    top: 10%;
+    width: 120px;
+}
+
 button {
     height: 100px;
     width: 100px;
     margin: auto auto 0 auto;
+    border: none;
+    background: none;
 }
 
 .directions {
     position: absolute;
-}
-
-button {
-    border: none;
-    background: none;
 }
 
 #back {
@@ -301,7 +391,8 @@ form {
     margin: auto;
 }
 
-#name, #email {
+#name,
+#email {
     width: 300px;
     border-radius: 2em;
     padding: 1em;
@@ -319,13 +410,30 @@ form {
 #submit {
     float: right;
     margin-right: 11em;
-     border-radius: 2em;
-        height: 30px;
+    border-radius: 2em;
+    height: 30px;
     border: #EB94B3 4px solid;
-     width: 70px;
+    width: 70px;
 }
 
-h3 {
-    grid-column: 1/20;
+.other {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.text {
+    grid-column: 1/21;
     text-align: center;
+    height: 40px;
+    width: 300px;
+    margin: auto;
+}
+
+.text:nth-of-type(3) {
+transform: translateY(-5em)
+}
+
+.text:nth-of-type(5) {
+transform: translateY(-9em)
 }

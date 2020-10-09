@@ -5,7 +5,7 @@ $(function () {
     let backBtn = document.getElementById("back");
     let nextBtn = document.getElementById("next");
     let sliderIndex = 0;
-    const lastSliderIndex = 9;
+    const lastSliderIndex = 11;
     let options = {
         'skinColor': 7,
         'eye': -1,
@@ -15,7 +15,12 @@ $(function () {
         'hairColor': -1,
         'facialHair': -1,
         'shirt': -1,
-        'bottom': -1
+        'shirtColor': -1,
+        'bottom': -1,
+        'bottomColor': -1,
+        'headValue': -1,
+        'shirtValue': -1,
+        'signValue': -1
     };
 
     /*
@@ -48,14 +53,7 @@ $(function () {
                 nextBtn.style.display = "none";
             }
         }
-        if (sliderIndex === 3) {
-            SVGInject.setOptions({
-                afterLoad: function (svg, svgString) {
-                    svg.classList.add('hairColour');
-                }
-            })
-            SVGInject(document.querySelectorAll("#hair"));
-        }
+
         moveSlider();
     };
 
@@ -72,6 +70,7 @@ $(function () {
     let $skinColors = $('#skinColour .colour');
     let $person = $('.st0');
     let modalSkin = document.querySelector(".modalSkin");
+    let pickerContainer = document.querySelector(".picker-container");
 
     skinColorPicker.on('color:change', function (color) {
         if (color.saturation < 35) {
@@ -91,7 +90,9 @@ $(function () {
         let $this = $(this);
         let index = $skinColors.index($this);
         if (index === 8) {
-            modalSkin.style.transform = "translate(0, -32vh)";
+            modalSkin.style.display = "block";
+            $(pickerContainer).animate({"top":"50vh"}, {duration: 250, ease: 'swing'});
+            //pickerContainer.style.top = "50vh";
             return;
         }
         let color = $this.css('background-color');
@@ -103,7 +104,11 @@ $(function () {
 
     $(modalSkin).click(function (e) {
         if (e.target === e.currentTarget) {
-            this.style.transform = "translate(0, 100vh)"
+            
+            $(pickerContainer).animate({"top":"100vh"}, 250, 'swing', function(){
+                modalSkin.style.display = "none";
+            });
+            
         }
 
     })
@@ -157,20 +162,6 @@ $(function () {
 
     /*Hair*/
 
-
-    /*   let svg = document.querySelector('#Layer_1');
-       let path = svg.getElementsByTagName("path")[0];*/
-    //    let hair1 = document.querySelector('#hair1').innerHTML;
-    //    let hair = document.querySelector('#hair');
-    //    hair.innerHTML = hair1;
-    //    
-    //        var hairColorPicker = new iro.ColorPicker("#hairPicker", {
-    //        width: 300,
-    //    });
-
-    svg = document.querySelector('#Layer_2');
-    let path = svg.getElementsByTagName("path")[0];
-
     let $hair = $('.hair');
     let $masterHair = $('#hair');
     let $hairColour = $('#hair g .st1');
@@ -182,55 +173,134 @@ $(function () {
         options.hair = index;
     });
 
-    //        hairColorPicker.on('color:change', function (color) {
-    //        if (color.saturation < 35) {
-    //            color.saturation = 35;
-    //        }
-    //    });
-
-    //    hairColorPicker.on('color:change', function (color) {
-    //        var hex = hairColorPicker.color.hexString;
-    //        $hairColour.css({
-    //            'fill': hex
-    //        });
-    //        options.hairColor = hex;
-    //        console.log(options.hairColor)
-    //    })
-
     /*Facial hair*/
-
+    
     let $facialHair = $('.facialHair');
     let $masterFacialHair = $('#facialHair');
     $facialHair.click(function () {
         let $this = $(this);
         let index = $facialHair.index($this);
+        let $facialHairClone = $facialHair.eq(index).clone();
+        $masterFacialHair.empty().append($facialHairClone);
         options.facialHair = index;
-        let image = $this.attr('src');
-        $masterFacialHair.attr('src', image);
     });
+
+        var hairColorPicker = new iro.ColorPicker("#hairColorPicker", {
+        width: 225,
+        margin: 20
+    });
+    
+    hairColorPicker.on('color:change', function (color) {
+        if (color.saturation < 35) {
+            color.saturation = 35;
+        }
+    });
+
+    hairColorPicker.on('color:change', function (color) {
+        var hex = hairColorPicker.color.hexString;
+        var $st1 = $('.st1');
+        $st1.css({
+            'fill': hex
+        });
+        options.hairColor = hex;
+    })
 
     /*Shirt*/
 
-    let $shirt = $('.shirt');
+        let $shirt = $('.shirt');
     let $masterShirt = $('#shirt');
     $shirt.click(function () {
         let $this = $(this);
         let index = $shirt.index($this);
+        let $shirtClone = $shirt.eq(index).clone();
+        $masterShirt.empty().append($shirtClone);
         options.shirt = index;
-        let image = $this.attr('src');
-        $masterShirt.attr('src', image);
     });
 
+        var shirtColorPicker = new iro.ColorPicker("#shirtColorPicker", {
+        width: 225,
+        margin: 20
+    });
+    
+    shirtColorPicker.on('color:change', function (color) {
+        if (color.saturation < 35) {
+            color.saturation = 35;
+        }
+    });
+
+    shirtColorPicker.on('color:change', function (color) {
+        var hex = shirtColorPicker.color.hexString;
+        var $st2 = $('.st2');
+        $st2.css({
+            'fill': hex
+        });
+        options.shirtColor = hex;
+    }); 
+    
     /*Bottoms*/
 
-    let $bottom = $('.bottom');
+        let $bottom = $('.bottoms');
     let $masterBottom = $('#bottoms');
     $bottom.click(function () {
         let $this = $(this);
         let index = $bottom.index($this);
+        let $bottomClone = $bottom.eq(index).clone();
+        $masterBottom.empty().append($bottomClone);
         options.bottom = index;
-        let image = $this.attr('src');
-        $masterBottom.attr('src', image);
     });
+
+        var bottomColorPicker = new iro.ColorPicker("#bottomColorPicker", {
+        width: 225,
+        margin: 20
+    });
+    
+    bottomColorPicker.on('color:change', function (color) {
+        if (color.saturation < 35) {
+            color.saturation = 35;
+        }
+    });
+
+    bottomColorPicker.on('color:change', function (color) {
+        var hex = bottomColorPicker.color.hexString;
+        var $st3 = $('.st3');
+        $st3.css({
+            'fill': hex
+        });
+        options.bottomColor = hex;
+    }); 
+    
+      let $headValues = $('.headValue');
+    let $masterHeadValue = $('#headValue');
+    $headValues.click(function () {
+        let $this = $(this);
+        let index = $headValues.index($this);
+        //    alert(index);
+        options.headValue = index;
+        let image = $this.attr('src');
+        $masterHeadValue.attr('src', image);
+    });
+    
+         let $bodyValues = $('.bodyValue');
+    let $masterBodyValue = $('#shirtValue');
+    $bodyValues.click(function () {
+        let $this = $(this);
+        let index = $bodyValues.index($this);
+        //    alert(index);
+        options.shirtValue = index;
+        let image = $this.attr('src');
+        $masterBodyValue.attr('src', image);
+    });
+
+         let $signValues = $('.signValue');
+    let $masterSignValue = $('#signValue');
+    $signValues.click(function () {
+        let $this = $(this);
+        let index = $signValues.index($this);
+        //    alert(index);
+        options.signValue = index;
+        let image = $this.attr('src');
+        $masterSignValue.attr('src', image);
+    });
+
 
 });
